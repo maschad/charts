@@ -8,39 +8,57 @@
  * Controller of the chartsApp
  */
 angular.module('chartsApp')
-  .controller('ScatterCtrl', function () {
-    new Highcharts.Chart('container',{
-	        xAxis: {
-	            min: -1,
-	            max: 6
-	        },
-	        yAxis: {
-	            min: 0
-	        },
-	        title: {
-	            text: 'Scatter plot with regression line'
-	        },
-	        series: [{
-	            type: 'line',
-	            name: 'Regression Line',
-	            data: [[0, 1.11], [5, 4.51]],
-	            marker: {
-	                enabled: false
-	            },
-	            states: {
-	                hover: {
-	                    lineWidth: 0
-	                }
-	            },
-	            enableMouseTracking: false
-	        }, {
-	            type: 'scatter',
-	            name: 'Observations',
-	            data: [1, 1.5, 2.8, 3.5, 3.9, 4.2],
-	            marker: {
-	                radius: 4
-	            }
-		}]
-    });
+  .controller('ScatterCtrl', function ($scope) {
+    $scope.addPoints = function () {
+      var seriesArray = $scope.chartConfig.series
+      var rndIdx = Math.floor(Math.random() * seriesArray.length);
+      seriesArray[rndIdx].data = seriesArray[rndIdx].data.concat([1, 10, 20])
+    };
+
+    $scope.addSeries = function () {
+      var rnd = []
+      for (var i = 0; i < 10; i++) {
+        rnd.push(Math.floor(Math.random() * 20) + 1)
+      }
+      $scope.chartConfig.series.push({
+        data: rnd
+      })
+    }
+
+    $scope.removeRandomSeries = function () {
+      var seriesArray = $scope.chartConfig.series
+      var rndIdx = Math.floor(Math.random() * seriesArray.length);
+      seriesArray.splice(rndIdx, 1)
+    }
+
+    $scope.swapChartType = function () {
+      if (this.chartConfig.options.chart.type === 'line') {
+        this.chartConfig.options.chart.type = 'bar'
+      } else {
+        this.chartConfig.options.chart.type = 'line'
+        this.chartConfig.options.chart.zoomType = 'x'
+      }
+    }
+
+    $scope.toggleLoading = function () {
+      this.chartConfig.loading = !this.chartConfig.loading
+    }
+
+    $scope.chartConfig = {
+      options: {
+        chart: {
+          type: 'bar'
+        }
+      },
+      series: [{
+        data: [10, 15, 12, 8, 7]
+      }],
+      title: {
+        text: 'Hello'
+      },
+
+      loading: false
+    }
+
 });
 

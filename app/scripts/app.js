@@ -11,7 +11,8 @@
 angular
   .module('chartsApp', [
     'ngRoute',
-    'chart.js'
+    'chart.js',
+    'highcharts-ng'
   ])
   .config(function ($routeProvider) {
     $routeProvider
