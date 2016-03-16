@@ -9,10 +9,10 @@
  */
 angular.module('chartsApp')
   .controller('ScatterCtrl', function () {
-    var chart = new Highcharts.Chart('container',{
+    new Highcharts.Chart('container',{
 	        xAxis: {
-	            min: -0.5,
-	            max: 5.5
+	            min: -1,
+	            max: 6
 	        },
 	        yAxis: {
 	            min: 0
