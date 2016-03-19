@@ -21,21 +21,6 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/pie', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/radar',{
-        templateUrl:'views/radar.html',
-        controller:'RadarCtrl',
-        controllerAs: 'radar'
-      })
-      .when('/scatter',{
-        templateUrl:'views/scatter.html',
-        controller:'ScatterCtrl',
-        controllerAs: 'scatter'
-      })
       .otherwise({
         redirectTo: '/'
       });
