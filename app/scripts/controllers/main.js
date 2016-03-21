@@ -15,6 +15,12 @@ angular.module('chartsApp')
       seriesArray[0].data = seriesArray[0].data.concat([$scope.points]);
     };
 
+    $scope.remove = function () {
+      var seriesArray = $scope.chartConfig.series;
+      var toRemove = seriesArray[0].data.indexOf($scope.points);
+      seriesArray[0].data.splice(toRemove);
+    };
+
     $scope.chartConfig = {
       chart: {
         type: 'scatter',

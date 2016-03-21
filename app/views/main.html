@@ -3,8 +3,12 @@
      Add point:
     <input type="number" class="input-sm" ng-model="points">
     <br/>
+      Remove Point:
+    <input type="number" class="input-sm" ng-model="points">
+    <br/>
   </div>
   <button class="btn-success" ng-click="add()">Add</button>
+  <button class="btn-danger" ng-click="remove()">Remove</button>
   <highchart id="chart1" config="chartConfig" class="span10"></highchart>
   <div id="drag"></div>
   <div id="drop"></div>
