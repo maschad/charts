@@ -21,13 +21,12 @@ angular.module('chartsApp')
       seriesArray[0].data.splice(toRemove);
     };
 
-    $scope.chartConfig = {
-      options: {
+    Highcharts.chart('container', {
         chart: {
           type: 'scatter',
           zoomType: 'xy',
-          animation: false
-        },
+          animation: false,
+
         plotOptions: {
           scatter: {
             marker: {
@@ -127,6 +126,5 @@ angular.module('chartsApp')
           [169.5, 67.3], [160.0, 75.5], [172.7, 68.2], [162.6, 61.4], [157.5, 76.8],
           [176.5, 71.8], [164.4, 55.5], [160.7, 48.6], [174.0, 66.4], [163.8, 67.3]]
       }]
-    };
-
+    });
   });

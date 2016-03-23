@@ -9,11 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('chartsApp', [
-    'ngRoute',
-    'chart.js',
-    'highcharts-ng'
-  ])
+  .module('chartsApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
